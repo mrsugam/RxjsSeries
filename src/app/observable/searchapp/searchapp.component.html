@@ -1,0 +1,39 @@
+<div class="my-3 mx-3">
+  <h2>Search App</h2>
+  <br>
+  <h5>Search Youtube Video</h5>
+  <form #searchForm="ngForm">
+  <div class="mt-3">
+    <input type="text" class="form-control form-control-lg" ngModel
+    name="searchTerm" autocomplete="off" required>
+  </div>
+</form>
+  <br>
+  <hr>
+  <br>
+  <div class="result" *ngIf="searchResult">
+    <div class="d-flex">
+      <h5>Search Result</h5>
+      <span class="ms-auto text-muted">{{searchResultCount}} Result Found..</span>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Thumbnail</th>
+          <th scope="col">Title & Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of searchResult; index as i">
+          <th scope="row">{{i + 1}}</th>
+          <td><img src="{{item.thumb}}" width="130"></td>
+          <td>
+            <strong>{{item.title}}</strong>
+            <p>{{item.description}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
